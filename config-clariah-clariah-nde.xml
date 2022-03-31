@@ -22,55 +22,46 @@
     http request in seconds. If unspecified, will be INFINITE.  -->
     <timeout>60</timeout>
 
-    <!-- File used to log harvesting times. -->
-    <state-file>state.xml</state-file>
-    
     <!-- File used to store endpoint -> directory mappings -->
     <map-file>map.csv</map-file>
 
-    <!-- If this parameter is true, use incremental harvesting. For that to
-    work, state-file must be defined, the file must exist, and the provider
-    in question must have been harvested previously. If any of these conditions
-    is not fulfilled, this setting has no effect.-->
-    <incremental>false</incremental>
-    
     <!-- https://triplestore.netwerkdigitaalerfgoed.nl/sparql?name=Full%20dataset%20descriptions%20for%20publisher&infer=true&sameAs=true&query=PREFIX%20dcat%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Fdcat%23%3E%0APREFIX%20dct%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0A%0ASELECT%20*%20WHERE%20%7B%0A%20%20%20%20BIND%20(%3Chttp%3A%2F%2Fdata.bibliotheken.nl%2Fid%2Fthes%2Fp075301482%3E%20as%20%3Fpublisher)%0A%20%20%20%20%0A%20%20%20%20%3Fdataset%20a%20dcat%3ADataset%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20dct%3Atitle%20%3Ftitle%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20dct%3Alicense%20%3Flicense%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20dct%3Apublisher%20%3Fpublisher%20.%0A%0A%20%20%20%09OPTIONAL%20%7B%20%3Fdataset%20dct%3Adescription%20%3Fdescription%20%7D%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdataset%20dcat%3Akeyword%20%3Fkeyword%20%7D%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdataset%20dcat%3AlandingPage%20%3FlandingPage%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdataset%20dct%3Asource%20%3Fsource%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdataset%20dct%3Acreated%20%3Fcreated%20%7D%20%20%20%20%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdataset%20dct%3Amodified%20%3Fmodified%20%7D%20%20%20%20%20%20%20%20%20%20%20%20%0A%09OPTIONAL%20%7B%20%3Fdataset%20dct%3Aissued%20%3Fpublished%20%7D%0A%09OPTIONAL%20%7B%20%3Fdataset%20owl%3AversionInfo%20%3Fversion%20%7D%0A%20%20%20%20%0A%09OPTIONAL%20%7B%20%3Fdataset%20dcat%3Adistribution%20%3Fdistribution%20.%20%0A%20%20%20%20%20%20%20%20%3Fdistribution%20dcat%3AaccessURL%20%3Fdistribution_url%20.%20%7D%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dcat%3AmediaType%20%3Fdistribution_mediaType%20%7D%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Aformat%20%3Fdistribution_format%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Aissued%20%3Fdistribution_published%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Amodified%20%3Fdistribution_modified%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Adescription%20%3Fdistribution_description%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Alicense%20%3Fdistribution_license%20%7D%20%20%20%20%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dct%3Atitle%20%3Fdistribution_title%20%7D%20%20%20%20%20%20%20%09%0A%20%20%20%20OPTIONAL%20%7B%20%3Fdistribution%20dcat%3AbyteSize%20%3Fdistribution_size%20%7D%20%20%20%20%0A%7D -->
-    <!-- 
-      PREFIX dcat: <http://www.w3.org/ns/dcat#>
-PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-
-SELECT * WHERE {
-    BIND ({@url} as ?publisher)
-    
-    ?dataset a dcat:Dataset ;
-             dct:title ?title ;
-             dct:license ?license ;
-             dct:publisher ?publisher .
-
-   	OPTIONAL { ?dataset dct:description ?description }
-    OPTIONAL { ?dataset dcat:keyword ?keyword }
-    OPTIONAL { ?dataset dcat:landingPage ?landingPage }    
-    OPTIONAL { ?dataset dct:source ?source }    
-    OPTIONAL { ?dataset dct:created ?created }        
-    OPTIONAL { ?dataset dct:modified ?modified }            
-	OPTIONAL { ?dataset dct:issued ?published }
-	OPTIONAL { ?dataset owl:versionInfo ?version }
-    
-	OPTIONAL { ?dataset dcat:distribution ?distribution . 
-        ?distribution dcat:accessURL ?distribution_url . }
-    OPTIONAL { ?distribution dcat:mediaType ?distribution_mediaType }
-    OPTIONAL { ?distribution dct:format ?distribution_format }    
-    OPTIONAL { ?distribution dct:issued ?distribution_published }    
-    OPTIONAL { ?distribution dct:modified ?distribution_modified }    
-    OPTIONAL { ?distribution dct:description ?distribution_description }    
-    OPTIONAL { ?distribution dct:license ?distribution_license }    
-    OPTIONAL { ?distribution dct:title ?distribution_title }       	
-    OPTIONAL { ?distribution dcat:byteSize ?distribution_size }    
-}
-    -->
     <scenario>nde-ListRecords</scenario>
+    <nde-ListRecords-sparql text-expand="yes">
+      PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+        PREFIX dct: &lt;http://purl.org/dc/terms/>
+        PREFIX dc: &lt;http://purl.org/dc/elements/1.1/>
+        PREFIX owl: &lt;http://www.w3.org/2002/07/owl#>
+          
+          SELECT * WHERE {
+          BIND ({$provider/@url} as ?publisher)
+          
+          ?dataset a dcat:Dataset ;
+          dct:title ?title ;
+          dct:license ?license ;
+          dct:publisher ?publisher .
+          
+          OPTIONAL {{ ?dataset dct:description ?description }}
+          OPTIONAL {{ ?dataset dcat:keyword ?keyword }}
+          OPTIONAL {{ ?dataset dcat:landingPage ?landingPage }}    
+          OPTIONAL {{ ?dataset dct:source ?source }}    
+          OPTIONAL {{ ?dataset dct:created ?created }}        
+          OPTIONAL {{ ?dataset dct:modified ?modified }}            
+          OPTIONAL {{ ?dataset dct:issued ?published }}
+          OPTIONAL {{ ?dataset owl:versionInfo ?version }}
+          
+          OPTIONAL {{ ?dataset dcat:distribution ?distribution . 
+          ?distribution dcat:accessURL ?distribution_url . }}
+          OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
+          OPTIONAL {{ ?distribution dct:format ?distribution_format }}    
+          OPTIONAL {{ ?distribution dct:issued ?distribution_published }}    
+          OPTIONAL {{ ?distribution dct:modified ?distribution_modified }}    
+          OPTIONAL {{ ?distribution dct:description ?distribution_description }}    
+          OPTIONAL {{ ?distribution dct:license ?distribution_license }}    
+          OPTIONAL {{ ?distribution dct:title ?distribution_title }}       	
+          OPTIONAL {{ ?distribution dcat:byteSize ?distribution_size }?    
+          }}      
+    </nde-ListRecords-sparql>
   </settings>
 
 
