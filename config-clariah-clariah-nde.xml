@@ -51,7 +51,7 @@
           OPTIONAL {{ ?dataset owl:versionInfo ?version }}
           
           OPTIONAL {{ ?dataset dcat:distribution ?distribution . 
-          ?distribution dcat:accessURL ?distribution_url . }}
+                      ?distribution dcat:accessURL ?distribution_url . }}
           OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
           OPTIONAL {{ ?distribution dct:format ?distribution_format }}    
           OPTIONAL {{ ?distribution dct:issued ?distribution_published }}    
@@ -85,7 +85,8 @@
 
   <!-- ### list of providers ### -->
   <providers>
+    <nde-registry url="https://centres.clarin.eu/api/model"/>
     <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="KB"/>
-    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/>
+<!--    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/> -->
   </providers>
 </config>
