@@ -30,9 +30,8 @@
     else assume the given string is a fully qualified domain name in reverse order.
     When the file attribute is present, load the jar and search for the protocol in the jar,
     otherwise search for it in the local domain. -->
-    <protocol file="nde_protocol.jar">com.example.protocol.NDE</protocol>
-
-    <scenario>nde-ListRecords</scenario>
+    <protocol>nl.mpi.oai.harvester.protocol.NdeProtocol</protocol>
+    <scenario>ListRecords</scenario>
     
     <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/sparql">
       PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
