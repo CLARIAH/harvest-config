@@ -33,135 +33,135 @@
                 <cmdp:DCat>
                     <cmdp:Dataset cmd:ref="rp1">
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'title']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'title']/*" group-by=".">
                             <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:title>
                         </xsl:for-each-group>
-                        <xsl:for-each-group select="sr:result/sr:binding[@name = 'license']/sr:*"
+                        <xsl:for-each-group select="*:result/*:binding[@name = 'license']/*"
                             group-by=".">
                             <cmdp:license>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:license>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'publisher']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'publisher']/*" group-by=".">
                             <cmdp:publisher>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:publisher>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'description']/sr:*"
+                            select="*:result/*:binding[@name = 'description']/*"
                             group-by=".">
                             <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:description>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'keyword']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'keyword']/*" group-by=".">
                             <cmdp:keyword xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:keyword>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'landingPage']/sr:uri" group-by=".">
+                            select="*:result/*:binding[@name = 'landingPage']/*:uri" group-by=".">
                             <cmdp:landingPage>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:landingPage>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'source']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'source']/*" group-by=".">
                             <cmdp:source>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:source>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'created']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'created']/*" group-by=".">
                             <cmdp:created>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:created>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'modified']/sr:*"
+                            select="*:result/*:binding[@name = 'modified']/*"
                             group-by=".">
                             <cmdp:modified>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:modified>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'issued']/sr:*" group-by=".">
+                            select="*:result/*:binding[@name = 'issued']/*" group-by=".">
                             <cmdp:issued>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:issued>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                            select="sr:result/sr:binding[@name = 'version']/sr:literal" group-by=".">
+                            select="*:result/*:binding[@name = 'version']/*:literal" group-by=".">
                             <cmdp:versionInfo>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:versionInfo>
                         </xsl:for-each-group>
-                        <xsl:for-each-group select="sr:result/sr:binding[@name = 'distribution']"
-                            group-by="./sr:*">
-                            <xsl:variable name="res" select="current-group()[1]/parent::sr:result"/>
+                        <xsl:for-each-group select="*:result/*:binding[@name = 'distribution']"
+                            group-by="*">
+                            <xsl:variable name="res" select="current-group()[1]/parent::*:result"/>
                             <cmdp:Distribution>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_url']/sr:uri"
+                                    select="$res/*:binding[@name = 'distribution_url']/*:uri"
                                     group-by=".">
                                     <cmdp:accessURL>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:accessURL>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_mediaType']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_mediaType']/*"
                                     group-by=".">
                                     <cmdp:mediaType>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:mediaType>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_format']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_format']/*"
                                     group-by=".">
                                     <cmdp:format>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:format>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_published']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_published']/*"
                                     group-by=".">
                                     <cmdp:issued>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:issued>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_modified']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_modified']/*"
                                     group-by=".">
                                     <cmdp:modified>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:modified>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_description']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_description']/*"
                                     group-by=".">
                                     <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:description>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_license']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_license']/*"
                                     group-by=".">
                                     <cmdp:license>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:license>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_title']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_title']/*"
                                     group-by=".">
                                     <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:title>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="$res/sr:binding[@name = 'distribution_size']/sr:*"
+                                    select="$res/*:binding[@name = 'distribution_size']/*"
                                     group-by=".">
                                     <cmdp:byteSize>
                                         <xsl:value-of select="current-grouping-key()"/>
