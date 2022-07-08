@@ -48,10 +48,12 @@
   <actions>
     <format match="type" value="http://schema.org/Dataset">
       <action type="split"/>
+      <!-- TODO: do the NDE normalisation to DCAT -->
       <action type="save" dir="rec" suffix=".ttl"/>
     </format>
     <format match="type" value="https://schema.org/Dataset">
       <action type="split"/>
+      <!-- TODO: do the NDE normalisation to DCAT -->
       <action type="save" dir="rec" suffix=".ttl"/>
     </format>
   </actions>
@@ -66,13 +68,13 @@
         
         SELECT * WHERE {
         
-        {
-        ?dataset a schemas:Dataset .
-        FILTER NOT EXISTS { ?dataset schemas:isPartOf [ a schemas:Dataset ] . }
-        } UNION {
-        ?dataset a schema:Dataset .
-        FILTER NOT EXISTS { ?dataset schema:isPartOf [ a schema:Dataset ] . }    
-        }
+          {
+            ?dataset a schemas:Dataset .
+            FILTER NOT EXISTS { ?dataset schemas:isPartOf [ a schemas:Dataset ] . }
+          } UNION {
+            ?dataset a schema:Dataset .
+            FILTER NOT EXISTS { ?dataset schema:isPartOf [ a schema:Dataset ] . }    
+          }
         
         }
       </sparql>

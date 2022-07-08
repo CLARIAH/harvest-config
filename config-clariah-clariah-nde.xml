@@ -33,39 +33,41 @@
     <protocol>nl.mpi.oai.harvester.protocol.NdeProtocol</protocol>
     <scenario>ListRecords</scenario>
     
-    <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/sparql">
+    <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry">
       PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
         PREFIX dct: &lt;http://purl.org/dc/terms/>
         PREFIX dc: &lt;http://purl.org/dc/elements/1.1/>
         PREFIX owl: &lt;http://www.w3.org/2002/07/owl#>
           
-          SELECT * WHERE {
-          BIND ({$provider/@url} as ?publisher)
-          
-          ?dataset a dcat:Dataset ;
-          dct:title ?title ;
-          dct:license ?license ;
-          dct:publisher ?publisher .
-          
-          OPTIONAL {{ ?dataset dct:description ?description }}
-          OPTIONAL {{ ?dataset dcat:keyword ?keyword }}
-          OPTIONAL {{ ?dataset dcat:landingPage ?landingPage }}    
-          OPTIONAL {{ ?dataset dct:source ?source }}    
-          OPTIONAL {{ ?dataset dct:created ?created }}        
-          OPTIONAL {{ ?dataset dct:modified ?modified }}            
-          OPTIONAL {{ ?dataset dct:issued ?published }}
-          OPTIONAL {{ ?dataset owl:versionInfo ?version }}
-          
-          OPTIONAL {{ ?dataset dcat:distribution ?distribution . 
-          ?distribution dcat:accessURL ?distribution_url . }}
-          OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
-          OPTIONAL {{ ?distribution dct:format ?distribution_format }}    
-          OPTIONAL {{ ?distribution dct:issued ?distribution_published }}    
-          OPTIONAL {{ ?distribution dct:modified ?distribution_modified }}    
-          OPTIONAL {{ ?distribution dct:description ?distribution_description }}    
-          OPTIONAL {{ ?distribution dct:license ?distribution_license }}    
-          OPTIONAL {{ ?distribution dct:title ?distribution_title }}       	
-          OPTIONAL {{ ?distribution dcat:byteSize ?distribution_size }?    
+          SELECT * WHERE
+          {{
+            BIND (&lt;{$provider/@url}> as ?publisher)
+            
+            ?dataset a dcat:Dataset ;
+            dct:title ?title ;
+            dct:license ?license ;
+            dct:publisher ?publisher .
+            
+            OPTIONAL {{ ?dataset dct:description ?description }}
+            OPTIONAL {{ ?dataset dcat:keyword ?keyword }}
+            OPTIONAL {{ ?dataset dcat:landingPage ?landingPage }}    
+            OPTIONAL {{ ?dataset dct:source ?source }}    
+            OPTIONAL {{ ?dataset dct:created ?created }}        
+            OPTIONAL {{ ?dataset dct:modified ?modified }}            
+            OPTIONAL {{ ?dataset dct:issued ?published }}
+            OPTIONAL {{ ?dataset owl:versionInfo ?version }}
+            
+            OPTIONAL {{ ?dataset dcat:distribution ?distribution . 
+                        ?distribution dcat:accessURL ?distribution_url .
+                     }}
+            OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
+            OPTIONAL {{ ?distribution dct:format ?distribution_format }}    
+            OPTIONAL {{ ?distribution dct:issued ?distribution_published }}    
+            OPTIONAL {{ ?distribution dct:modified ?distribution_modified }}    
+            OPTIONAL {{ ?distribution dct:description ?distribution_description }}    
+            OPTIONAL {{ ?distribution dct:license ?distribution_license }}    
+            OPTIONAL {{ ?distribution dct:title ?distribution_title }}       	
+            OPTIONAL {{ ?distribution dcat:byteSize ?distribution_size }}  
           }}      
     </nde-ListRecords-sparql>
   </settings>
@@ -76,14 +78,15 @@
     <!-- When the attribute 'max-files' is non-zero, subdirectories
          will be created to ensure no directory has more than that
          number of files. -->
-    <dir path="results/xml" id="xml" max-files="0"/>
+    <dir path="cmdi" id="rec" max-files="0"/>
   </directories>
 
 
   <!-- ### actions to take on metadata formats (in order of preference) ### -->
   <actions>
     <format match="type" value="*">
-      <action type="split"/>
+      <action type="transform" file="srx-split.xsl"/>
+      <action type="transform" file="srx2cmdi.xsl"/>
       <action type="save" dir="rec" suffix=".xml"/>
     </format>
   </actions>
@@ -91,7 +94,8 @@
 
   <!-- ### list of providers ### -->
   <providers>
+    <nde-registry url="https://centres.clarin.eu/api/model"/>
     <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="KB"/>
-    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/>
+<!--    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/> -->
   </providers>
 </config>
