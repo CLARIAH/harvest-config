@@ -30,9 +30,9 @@
     else assume the given string is a fully qualified domain name in reverse order.
     When the file attribute is present, load the jar and search for the protocol in the jar,
     otherwise search for it in the local domain. -->
-    <protocol file="oai_protocol.jar">com.example.protocol.OAI-PMH</protocol>
+    <protocol>com.example.protocol.OAI-PMH</protocol>
 
-    <scenario>oai-ListRecords</scenario>
+    <scenario>ListRecords</scenario>
   </settings>
 
 
