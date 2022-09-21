@@ -6,7 +6,7 @@
     <xsl:template match="text()"/>
     
     <xsl:template match="/">
-        <records>
+        <records xmlns="">
             <xsl:apply-templates/>
         </records>
     </xsl:template>
@@ -14,16 +14,14 @@
     <xsl:template match="*:results">
         <!--<SRX>-->
             <xsl:for-each-group select="*:result" group-by="*:binding[@name = 'dataset']/*">
-                <xsl:if test="position() = 1">
-                    <record>
-                        <sparql>
-                            <xsl:copy-of select="$HEAD" copy-namespaces="no"/>
-                            <results dataset="{current-grouping-key()}">
-                                <xsl:copy-of select="current-group()" copy-namespaces="no"/>
-                            </results>
-                        </sparql>
-                    </record>
-                </xsl:if>
+                <record id="{replace(replace(current-grouping-key(),'.*//[^/]*/',''),'[^a-zA-Z0-9]','_')}" xmlns="">
+                    <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                        <xsl:copy-of select="$HEAD" copy-namespaces="no"/>
+                        <results dataset="{current-grouping-key()}">
+                            <xsl:copy-of select="current-group()" copy-namespaces="no"/>
+                        </results>
+                    </sparql>
+                </record>
             </xsl:for-each-group>
         <!--</SRX>-->
     </xsl:template>
