@@ -36,7 +36,7 @@
           
           SELECT * WHERE
           {{
-            BIND (&lt;{$provider/@url}> as ?publisher)
+            BIND (&lt;{$provider-url}> as ?publisher)
             
             ?dataset a dcat:Dataset ;
             dct:title ?title ;
@@ -81,6 +81,7 @@
   <actions>
     <format match="type" value="*">
       <action type="transform" file="srx-split.xsl"/>
+      <action type="xml-split"/>
       <action type="transform" file="srx2cmdi.xsl"/>
       <action type="save" dir="rec" suffix=".xml"/>
     </format>

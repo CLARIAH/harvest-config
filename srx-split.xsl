@@ -4,17 +4,25 @@
     <xsl:variable name="HEAD" select="/*:sparql/*:head"/>
     
     <xsl:template match="text()"/>
+    
+    <xsl:template match="/">
+        <records>
+            <xsl:apply-templates/>
+        </records>
+    </xsl:template>
 
     <xsl:template match="*:results">
         <!--<SRX>-->
             <xsl:for-each-group select="*:result" group-by="*:binding[@name = 'dataset']/*">
                 <xsl:if test="position() = 1">
-                    <sparql>
-                        <xsl:copy-of select="$HEAD" copy-namespaces="no"/>
-                        <results dataset="{current-grouping-key()}">
-                            <xsl:copy-of select="current-group()" copy-namespaces="no"/>
-                        </results>
-                    </sparql>
+                    <record>
+                        <sparql>
+                            <xsl:copy-of select="$HEAD" copy-namespaces="no"/>
+                            <results dataset="{current-grouping-key()}">
+                                <xsl:copy-of select="current-group()" copy-namespaces="no"/>
+                            </results>
+                        </sparql>
+                    </record>
                 </xsl:if>
             </xsl:for-each-group>
         <!--</SRX>-->
