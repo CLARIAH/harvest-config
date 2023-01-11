@@ -80,11 +80,11 @@
 
   <!-- ### list of providers ### -->
   <providers>
-    <provider url="http://oaipmh.huygens.knaw.nl/oai"/>
-    <provider url="https://www.meertens.knaw.nl/flat/oai2"/>
-    <provider url="https://archive.mpi.nl/oai2"/>
-    <provider url="http://clst.science.ru.nl/oai/provider"/>
-    <provider url="http://repository.clarin.inl.nl/oai/provider"/>
+<!--    <provider url="http://oaipmh.huygens.knaw.nl/oai"/>-->
+<!--    <provider url="https://www.meertens.knaw.nl/flat/oai2"/>-->
+<!--    <provider url="https://archive.mpi.nl/oai2"/>-->
+<!--    <provider url="http://clst.science.ru.nl/oai/provider"/>-->
+<!--    <provider url="http://repository.clarin.inl.nl/oai/provider"/>-->
     <provider url="http://easy.dans.knaw.nl/oai/">
       <set>D30000:D38000</set>
     </provider>
