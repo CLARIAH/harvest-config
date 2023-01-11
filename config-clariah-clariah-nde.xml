@@ -90,7 +90,7 @@
   <providers>
 <!--    <nde-registry url="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry"/>-->
     <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="KB"/>
-    <provider url="https://www.beeldengeluid.nl" name="SV"/>
+<!--    <provider url="https://www.beeldengeluid.nl" name="SV"/>-->
   </providers>
 </config>
 
