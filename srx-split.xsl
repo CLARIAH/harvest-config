@@ -5,7 +5,7 @@
     xmlns="http://www.w3.org/2005/sparql-results#"
     xpath-default-namespace="http://www.w3.org/2005/sparql-results#"    
     exclude-result-prefixes="xs math"
-    version="3.0">
+    version="2.0">
     
     <xsl:param name="OUT" select="'file:/Users/menzowi/Documents/Projects/CLARIAH/Datasets/data/nde-run/xml/KB/'"/>
     
