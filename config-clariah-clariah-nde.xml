@@ -26,40 +26,40 @@
 
     <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry">
       PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-      PREFIX dct: &lt;http://purl.org/dc/terms/>
-      PREFIX dc: &lt;http://purl.org/dc/elements/1.1/>
-      PREFIX owl: &lt;http://www.w3.org/2002/07/owl#>
-
-      SELECT * WHERE
-      {{
-      BIND (&lt;{$provider-url}> as ?publisher)
-
-      ?dataset a dcat:Dataset ;
-      dct:title ?title ;
-      dct:license ?license ;
-      dct:publisher ?publisher .
-
-      OPTIONAL {{ ?dataset dct:description ?description }}
-      OPTIONAL {{ ?dataset dcat:keyword ?keyword }}
-      OPTIONAL {{ ?dataset dcat:landingPage ?landingPage }}
-      OPTIONAL {{ ?dataset dct:source ?source }}
-      OPTIONAL {{ ?dataset dct:created ?created }}
-      OPTIONAL {{ ?dataset dct:modified ?modified }}
-      OPTIONAL {{ ?dataset dct:issued ?published }}
-      OPTIONAL {{ ?dataset owl:versionInfo ?version }}
-
-      OPTIONAL {{ ?dataset dcat:distribution ?distribution .
-      ?distribution dcat:accessURL ?distribution_url .
-      }}
-      OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
-      OPTIONAL {{ ?distribution dct:format ?distribution_format }}
-      OPTIONAL {{ ?distribution dct:issued ?distribution_published }}
-      OPTIONAL {{ ?distribution dct:modified ?distribution_modified }}
-      OPTIONAL {{ ?distribution dct:description ?distribution_description }}
-      OPTIONAL {{ ?distribution dct:license ?distribution_license }}
-      OPTIONAL {{ ?distribution dct:title ?distribution_title }}
-      OPTIONAL {{ ?distribution dcat:byteSize ?distribution_size }}
-      }}
+        PREFIX dct: &lt;http://purl.org/dc/terms/>
+        PREFIX dc: &lt;http://purl.org/dc/elements/1.1/>
+        PREFIX owl: &lt;http://www.w3.org/2002/07/owl#>
+          
+          SELECT * WHERE
+          {{
+            BIND (&lt;{$provider-url}> as ?publisher)
+            
+            ?dataset a dcat:Dataset ;
+            dct:title ?title ;
+            dct:license ?license ;
+            dct:publisher ?publisher .
+            
+            OPTIONAL {{ ?dataset dct:description ?description }}
+            OPTIONAL {{ ?dataset dcat:keyword ?keyword }}
+            OPTIONAL {{ ?dataset dcat:landingPage ?landingPage }}    
+            OPTIONAL {{ ?dataset dct:source ?source }}    
+            OPTIONAL {{ ?dataset dct:created ?created }}        
+            OPTIONAL {{ ?dataset dct:modified ?modified }}            
+            OPTIONAL {{ ?dataset dct:issued ?published }}
+            OPTIONAL {{ ?dataset owl:versionInfo ?version }}
+            
+            OPTIONAL {{ ?dataset dcat:distribution ?distribution . 
+                        ?distribution dcat:accessURL ?distribution_url .
+                     }}
+            OPTIONAL {{ ?distribution dcat:mediaType ?distribution_mediaType }}
+            OPTIONAL {{ ?distribution dct:format ?distribution_format }}    
+            OPTIONAL {{ ?distribution dct:issued ?distribution_published }}    
+            OPTIONAL {{ ?distribution dct:modified ?distribution_modified }}    
+            OPTIONAL {{ ?distribution dct:description ?distribution_description }}    
+            OPTIONAL {{ ?distribution dct:license ?distribution_license }}    
+            OPTIONAL {{ ?distribution dct:title ?distribution_title }}       	
+            OPTIONAL {{ ?distribution dcat:byteSize ?distribution_size }}  
+          }}      
     </nde-ListRecords-sparql>
 
     <incremental>false</incremental>
@@ -88,9 +88,8 @@
 
   <!-- ### list of providers ### -->
   <providers>
-<!--    <nde-registry url="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry"/>-->
+    <nde-registry url="https://centres.clarin.eu/api/model"/>
     <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="KB"/>
-<!--    <provider url="https://www.beeldengeluid.nl" name="SV"/>-->
+<!--    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/> -->
   </providers>
 </config>
-
