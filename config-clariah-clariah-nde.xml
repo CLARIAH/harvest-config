@@ -25,7 +25,7 @@
     <!-- File used to store endpoint -> directory mappings -->
     <map-file>map.csv</map-file>
 
-    <protocol>nde</protocol>
+    <protocol>nl.mpi.oai.harvester.protocol.NdeProtocol</protocol>
     <scenario>ListRecords</scenario>
     
     <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry">
