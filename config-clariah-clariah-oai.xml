@@ -79,7 +79,8 @@
     <provider url="http://clst.science.ru.nl/oai/provider"/>
     <provider url="http://repository.clarin.inl.nl/oai/provider"/>
     <provider url="http://easy.dans.knaw.nl/oai/">
-      <set>D30000:D38000</set>
+      <set>D30000:D36000</set>
+      <set>easy-collection:1</set>
     </provider>
   </providers>
 </config>
