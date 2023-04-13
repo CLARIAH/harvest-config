@@ -90,8 +90,7 @@
 
   <!-- ### list of providers ### -->
   <providers>
-    <nde-registry url="https://centres.clarin.eu/api/model"/>
     <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="KB"/>
-<!--    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="BenG"/> -->
+    <provider url="https://www.beeldengeluid.nl" name="BenG"/>
   </providers>
 </config>
