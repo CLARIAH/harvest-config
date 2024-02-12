@@ -75,15 +75,17 @@
          number of files. -->
     <dir path="cmdi" id="rec" max-files="0"/>
     <dir path="middle" id="request" max-files="0"/>
+    <dir path="start" id="result" max-files="0"/>
   </directories>
 
   <!-- ### actions to take on metadata formats (in order of preference) ### -->
   <actions>
     <format match="type" value="*">
-      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/main/srx-split.xsl"/>
+      <action type="save" dir="result" suffix=".xml"/>
+      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx-split.xsl"/>
       <action type="save" dir="request" suffix=".xml"/>
       <action type="xml-split"/>
-      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/main/srx2cmdi.xsl"/>
+      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx2cmdi.xsl"/>
       <action type="save" dir="rec" suffix=".xml"/>
     </format>
   </actions>
