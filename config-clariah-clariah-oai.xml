@@ -25,7 +25,14 @@
     <!-- File used to store endpoint -> directory mappings -->
     <map-file>map.csv</map-file>
 
-    <scenario>oai-ListRecords</scenario>
+    <!-- Protocol to use,
+    if shortname, for example, OAI-PMH or NDE presents, we should search for short name
+    else assume the given string is a fully qualified domain name in reverse order.
+    When the file attribute is present, load the jar and search for the protocol in the jar,
+    otherwise search for it in the local domain. -->
+    <protocol>com.example.protocol.OAI-PMH</protocol>
+
+    <scenario>ListRecords</scenario>
   </settings>
 
 
@@ -73,7 +80,7 @@
 
   <!-- ### list of providers ### -->
   <providers>
-<!--    <provider url="http://oaipmh.huygens.knaw.nl/oai"/>-->
+<!--<provider url="http://oaipmh.huygens.knaw.nl/oai"/>-->
     <provider url="https://www.meertens.knaw.nl/flat/oai2"/>
     <provider url="https://archive.mpi.nl/oai2" timeout="600" />
     <provider url="http://clst.science.ru.nl/oai/provider"/>
