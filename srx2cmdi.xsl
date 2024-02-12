@@ -18,6 +18,7 @@
                 <cmd:MdCreator>sparqlresult2cmdi.xsl</cmd:MdCreator>
                 <cmd:MdCreationDate><xsl:value-of select="current-date()"/></cmd:MdCreationDate>
                 <cmd:MdProfile>clarin.eu:cr1:p_1650879720846</cmd:MdProfile>
+                <cmd:MdSelfLink><xsl:value-of select="@dataset"/></cmd:MdSelfLink>
             </cmd:Header>
             <cmd:Resources>
                 <cmd:ResourceProxyList>
