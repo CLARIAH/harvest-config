@@ -26,10 +26,10 @@
                         <cmd:ResourceType>Resource</cmd:ResourceType>
                         <cmd:ResourceRef><xsl:value-of select="@dataset"/></cmd:ResourceRef>
                     </cmd:ResourceProxy>
-                    <xsl:if test="normalize-space(*:result/*:binding[@name = 'landingPage']/*:uri)!=''">
+                    <xsl:if test="normalize-space(*:result/*:binding[@name = 'landingPage'][1]/*:uri)!=''">
                         <cmd:ResourceProxy id="lp">
                             <cmd:ResourceType>LandingPage</cmd:ResourceType>
-                            <cmd:ResourceRef><xsl:value-of select="*:result/*:binding[@name = 'landingPage']/*:uri"/></cmd:ResourceRef>
+                            <cmd:ResourceRef><xsl:value-of select="*:result/*:binding[@name = 'landingPage'][1]/*:uri"/></cmd:ResourceRef>
                         </cmd:ResourceProxy>
                     </xsl:if>
                 </cmd:ResourceProxyList>
