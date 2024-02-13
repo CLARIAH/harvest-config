@@ -137,7 +137,7 @@
     <provider url="https://opendata.picturae.com/organization/sahm" name="Streekarchief Midden-Holland"/>
     <provider url="https://opendata.picturae.com/organization/rce_gla" name="Nationaal Glasmuseum"/>
     <provider url="https://opendata.picturae.com/organization/rce_kunstcollectie" name="Rijksdienst voor Cultureel Erfgoed - Kunstcollectie"/>
-    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>
+<!--    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>-->
     <provider url="https://dc4eu.nl/" name="DC4EU - Dutch Collections for Europe"/>
     <provider url="https://www.collectienederland.nl" name="Rijksdienst voor Cultureel Erfgoed"/>
     <provider url="https://erfgoedbrabant.ginger-acceptatie.driebit.net/" name="Brabants Erfgoed"/>
