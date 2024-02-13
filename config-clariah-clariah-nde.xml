@@ -96,77 +96,78 @@
 
   <!-- ### list of providers ### -->
   <providers>
-    <provider url="https://www.kb.nl/" name="Koninklijke Bibliotheek"/>
-    <provider url="https://vangoghworldwide.org/" name="Van Gogh worldwide consortium"/>
-    <provider url="https://www.oorlogsbronnen.nl" name="Netwerk Oorlogsbronnen"/>
-    <provider url="https://www.genealogieonline.nl/" name="Genealogie Online"/>
-    <provider url="http://standaarden.overheid.nl/owms/terms/Rijksdienst_voor_het_Cultureel_Erfgoed" name="Rijksdienst voor het Cultureel Erfgoed"/>
-    <provider url="https://www.adamnet.nl/" name="AdamNet"/>
-    <provider url="https://geheugen.delpher.nl/" name="Geheugen van Nederland"/>
-    <provider url="https://hetutrechtsarchief.nl/" name="Het Utrechts Archief"/>
-    <provider url="https://iisg.amsterdam/" name="International Institute of Social History"/>
-    <provider url="https://data.labs.kadaster.nl/kadaster" name="Kadaster"/>
-    <provider url="https://druid.datalegend.net/nlgis" name="Spatial Humanities Netherlands"/>
-    <provider url="https://www.tropenmuseum.nl/nl/over-het-tropenmuseum/stichting-nationaal-museum-van-wereldculturen" name="Nationaal Museum van Wereldculturen"/>
-    <provider url="https://data.overheid.nl/organisatie/Rijksmuseum" name="Rijksmuseum"/>
-    <provider url="https://www.muziekschatten.nl/" name="Muziekschatten"/>
-    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="Koninklijke Bibliotheek"/>
-    <provider url="https://www.niod.nl/" name="NIOD Instituut voor Oorlogs-, Holocaust- en Genocidestudies"/>
-    <provider url="https://druid.datalegend.net/dataLegend" name="dataLegend"/>
-    <provider url="https://www.regionaalarchiefnijmegen.nl/" name="Regionaal Archief Nijmegen"/>
-    <provider url="https://uba.uva.nl" name="University of Amsterdam Library"/>
-    <provider url="https://literatuurmuseum.nl/" name="Literatuurmuseum"/>
-    <provider url="https://opendata.picturae.com/organization/szu" name="Regionaal Archief Zutphen"/>
-    <provider url="https://opendata.picturae.com/organization/ecd" name="MADE in DENDERLAND"/>
-    <provider url="https://opendata.picturae.com/organization/brd" name="Stadsarchief Breda"/>
-    <provider url="https://opendata.picturae.com/organization/frl" name="Alle Friezen"/>
-    <provider url="https://opendata.picturae.com/organization/gra" name="Alle Groningers"/>
-    <provider url="https://opendata.picturae.com/organization/bhic" name="Brabants Historisch Informatie Centrum"/>
-    <provider url="https://opendata.picturae.com/organization/wba" name="West Brabants Archief"/>
-    <provider url="https://opendata.picturae.com/organization/ven" name="Gemeentearchief Venray"/>
-    <provider url="https://opendata.picturae.com/organization/gam" name="Achief Eemland"/>
-    <provider url="https://opendata.picturae.com/organization/thl" name="Gemeentearchief Tholen"/>
-    <provider url="https://opendata.picturae.com/organization/dre" name="Drents archief "/>
-    <provider url="https://opendata.picturae.com/organization/ams" name="Stadsarchief Amsterdam "/>
-    <provider url="https://opendata.picturae.com/organization/sha" name="Streekarchief Langstraat Heusden Altena"/>
-    <provider url="https://opendata.picturae.com/organization/rce_zzm" name="Zuiderzee museum"/>
-    <provider url="https://opendata.picturae.com/organization/rce" name="Rijksdienst voor Cultureel Erfgoed"/>
-    <provider url="https://opendata.picturae.com/organization/als" name="Stadsarchief Aalst"/>
-    <provider url="https://opendata.picturae.com/organization/rce_wfm" name="Westfries Museum"/>
-    <provider url="https://opendata.picturae.com/organization/rce_evh" name="Erfgoed vereniging Heemschut"/>
-    <provider url="https://opendata.picturae.com/organization/sahm" name="Streekarchief Midden-Holland"/>
-    <provider url="https://opendata.picturae.com/organization/rce_gla" name="Nationaal Glasmuseum"/>
-    <provider url="https://opendata.picturae.com/organization/rce_kunstcollectie" name="Rijksdienst voor Cultureel Erfgoed - Kunstcollectie"/>
-    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>
-    <provider url="https://dc4eu.nl/" name="DC4EU - Dutch Collections for Europe"/>
-    <provider url="https://www.collectienederland.nl" name="Rijksdienst voor Cultureel Erfgoed"/>
-    <provider url="https://erfgoedbrabant.ginger-acceptatie.driebit.net/" name="Brabants Erfgoed"/>
-    <provider url="https://uba.uva.nl/" name="Library of the University of Amsterdam"/>
-    <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
-    <provider url="https://www.create.humanities.uva.nl/" name="CREATE, An E-Humanities Perspective"/>
-    <provider url="https://data.pldn.nl/hack-a-lod-2022" name="hack-a-lod-2022"/>
-    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>
-    <provider url="https://annefrank.org" name="Anne Frank Stichting"/>
-    <provider url="https://annefrank.org" name="Anne Frank House"/>
-    <provider url="https://data.netwerkdigitaalerfgoed.nl/Anne-Frank-Stichting" name="Anne Frank Stichting"/>
-    <provider url="https://viaf.org/viaf/197381225/" name="Maastricht University Library"/>
-    <provider url="https://linkeddata.cultureelerfgoed.nl/colonialheritage" name="Colonial Heritage"/>
-    <provider url="https://nieuweinstituut.nl/" name="Nieuwe Instituut"/>
-    <provider url="https://data.netwerkdigitaalerfgoed.nl/Peace-Palace-Library" name="Peace Palace Library"/>
-    <provider url="https://www.nationaalarchief.nl" name="Nationaal Archief"/>
-    <provider url="https://www.openarchieven.nl/" name="Open Archieven"/>
-    <provider url="https://www.openarchieven.nl/" name="Open Archives"/>
-    <provider url="https://triplydb.com/mark-lindeman" name="Mark Lindeman"/>
-    <provider url="https://museumthorn.com/nl/resultaten" name="Museum Thorn"/>
-    <provider url="https://lod.uba.uva.nl/CREATE" name="CREATE"/>
-    <provider url="https://lod.uba.uva.nl/Cinema-Context" name="Cinema Context"/>
-    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine"/>
-    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Time Machine"/>
-    <provider url="https://colonial-heritage.triply.cc/nmvw" name="Nationaal Museum van Wereldculturen"/>
-    <provider url="https://data.netwerkdigitaalerfgoed.nl/Data-Doe-Dag" name="NDE Data-Doe-Dag"/>
-    <provider url="https://linkeddata.cultureelerfgoed.nl/rce" name="Rijksdienst voor het Cultureel Erfgoed"/>
-    <provider url="https://opendata.archieven.nl/organisatie/15" name="Gemeente Borne"/>
-    <provider url="https://data.colonialcollections.nl/nmvw" name="Nationaal Museum van Wereldculturen"/>
-    <provider url="https://data.colonialcollections.nl/Bronbeek" name="Bronbeek"/>
+        <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
+<!--    <provider url="https://www.kb.nl/" name="Koninklijke Bibliotheek"/>-->
+<!--    <provider url="https://vangoghworldwide.org/" name="Van Gogh worldwide consortium"/>-->
+<!--    <provider url="https://www.oorlogsbronnen.nl" name="Netwerk Oorlogsbronnen"/>-->
+<!--    <provider url="https://www.genealogieonline.nl/" name="Genealogie Online"/>-->
+<!--    <provider url="http://standaarden.overheid.nl/owms/terms/Rijksdienst_voor_het_Cultureel_Erfgoed" name="Rijksdienst voor het Cultureel Erfgoed"/>-->
+<!--    <provider url="https://www.adamnet.nl/" name="AdamNet"/>-->
+<!--    <provider url="https://geheugen.delpher.nl/" name="Geheugen van Nederland"/>-->
+<!--    <provider url="https://hetutrechtsarchief.nl/" name="Het Utrechts Archief"/>-->
+<!--    <provider url="https://iisg.amsterdam/" name="International Institute of Social History"/>-->
+<!--    <provider url="https://data.labs.kadaster.nl/kadaster" name="Kadaster"/>-->
+<!--    <provider url="https://druid.datalegend.net/nlgis" name="Spatial Humanities Netherlands"/>-->
+<!--    <provider url="https://www.tropenmuseum.nl/nl/over-het-tropenmuseum/stichting-nationaal-museum-van-wereldculturen" name="Nationaal Museum van Wereldculturen"/>-->
+<!--    <provider url="https://data.overheid.nl/organisatie/Rijksmuseum" name="Rijksmuseum"/>-->
+<!--    <provider url="https://www.muziekschatten.nl/" name="Muziekschatten"/>-->
+<!--    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="Koninklijke Bibliotheek"/>-->
+<!--    <provider url="https://www.niod.nl/" name="NIOD Instituut voor Oorlogs-, Holocaust- en Genocidestudies"/>-->
+<!--    <provider url="https://druid.datalegend.net/dataLegend" name="dataLegend"/>-->
+<!--    <provider url="https://www.regionaalarchiefnijmegen.nl/" name="Regionaal Archief Nijmegen"/>-->
+<!--    <provider url="https://uba.uva.nl" name="University of Amsterdam Library"/>-->
+<!--    <provider url="https://literatuurmuseum.nl/" name="Literatuurmuseum"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/szu" name="Regionaal Archief Zutphen"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/ecd" name="MADE in DENDERLAND"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/brd" name="Stadsarchief Breda"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/frl" name="Alle Friezen"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/gra" name="Alle Groningers"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/bhic" name="Brabants Historisch Informatie Centrum"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/wba" name="West Brabants Archief"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/ven" name="Gemeentearchief Venray"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/gam" name="Achief Eemland"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/thl" name="Gemeentearchief Tholen"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/dre" name="Drents archief "/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/ams" name="Stadsarchief Amsterdam "/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/sha" name="Streekarchief Langstraat Heusden Altena"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce_zzm" name="Zuiderzee museum"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce" name="Rijksdienst voor Cultureel Erfgoed"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/als" name="Stadsarchief Aalst"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce_wfm" name="Westfries Museum"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce_evh" name="Erfgoed vereniging Heemschut"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/sahm" name="Streekarchief Midden-Holland"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce_gla" name="Nationaal Glasmuseum"/>-->
+<!--    <provider url="https://opendata.picturae.com/organization/rce_kunstcollectie" name="Rijksdienst voor Cultureel Erfgoed - Kunstcollectie"/>-->
+<!--    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>-->
+<!--    <provider url="https://dc4eu.nl/" name="DC4EU - Dutch Collections for Europe"/>-->
+<!--    <provider url="https://www.collectienederland.nl" name="Rijksdienst voor Cultureel Erfgoed"/>-->
+<!--    <provider url="https://erfgoedbrabant.ginger-acceptatie.driebit.net/" name="Brabants Erfgoed"/>-->
+<!--    <provider url="https://uba.uva.nl/" name="Library of the University of Amsterdam"/>-->
+<!--    <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>-->
+<!--    <provider url="https://www.create.humanities.uva.nl/" name="CREATE, An E-Humanities Perspective"/>-->
+<!--    <provider url="https://data.pldn.nl/hack-a-lod-2022" name="hack-a-lod-2022"/>-->
+<!--    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>-->
+<!--    <provider url="https://annefrank.org" name="Anne Frank Stichting"/>-->
+<!--    <provider url="https://annefrank.org" name="Anne Frank House"/>-->
+<!--    <provider url="https://data.netwerkdigitaalerfgoed.nl/Anne-Frank-Stichting" name="Anne Frank Stichting"/>-->
+<!--    <provider url="https://viaf.org/viaf/197381225/" name="Maastricht University Library"/>-->
+<!--    <provider url="https://linkeddata.cultureelerfgoed.nl/colonialheritage" name="Colonial Heritage"/>-->
+<!--    <provider url="https://nieuweinstituut.nl/" name="Nieuwe Instituut"/>-->
+<!--    <provider url="https://data.netwerkdigitaalerfgoed.nl/Peace-Palace-Library" name="Peace Palace Library"/>-->
+<!--    <provider url="https://www.nationaalarchief.nl" name="Nationaal Archief"/>-->
+<!--    <provider url="https://www.openarchieven.nl/" name="Open Archieven"/>-->
+<!--    <provider url="https://www.openarchieven.nl/" name="Open Archives"/>-->
+<!--    <provider url="https://triplydb.com/mark-lindeman" name="Mark Lindeman"/>-->
+<!--    <provider url="https://museumthorn.com/nl/resultaten" name="Museum Thorn"/>-->
+<!--    <provider url="https://lod.uba.uva.nl/CREATE" name="CREATE"/>-->
+<!--    <provider url="https://lod.uba.uva.nl/Cinema-Context" name="Cinema Context"/>-->
+<!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine"/>-->
+<!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Time Machine"/>-->
+<!--    <provider url="https://colonial-heritage.triply.cc/nmvw" name="Nationaal Museum van Wereldculturen"/>-->
+<!--    <provider url="https://data.netwerkdigitaalerfgoed.nl/Data-Doe-Dag" name="NDE Data-Doe-Dag"/>-->
+<!--    <provider url="https://linkeddata.cultureelerfgoed.nl/rce" name="Rijksdienst voor het Cultureel Erfgoed"/>-->
+<!--    <provider url="https://opendata.archieven.nl/organisatie/15" name="Gemeente Borne"/>-->
+<!--    <provider url="https://data.colonialcollections.nl/nmvw" name="Nationaal Museum van Wereldculturen"/>-->
+<!--    <provider url="https://data.colonialcollections.nl/Bronbeek" name="Bronbeek"/>-->
   </providers>
 </config>
