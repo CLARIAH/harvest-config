@@ -160,7 +160,7 @@
     <provider url="https://museumthorn.com/nl/resultaten" name="Museum Thorn"/>
     <provider url="https://lod.uba.uva.nl/CREATE" name="CREATE"/>
     <provider url="https://lod.uba.uva.nl/Cinema-Context" name="Cinema Context"/>
-    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine"/>
+<!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine"/>-->
     <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Time Machine"/>
     <provider url="https://colonial-heritage.triply.cc/nmvw" name="Nationaal Museum van Wereldculturen"/>
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Data-Doe-Dag" name="NDE Data-Doe-Dag"/>
