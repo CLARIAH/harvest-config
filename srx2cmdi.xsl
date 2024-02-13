@@ -26,13 +26,15 @@
                         <cmd:ResourceType>Resource</cmd:ResourceType>
                         <cmd:ResourceRef><xsl:value-of select="@dataset"/></cmd:ResourceRef>
                     </cmd:ResourceProxy>
-                    <xsl:if test="normalize-space((*:result/*:binding[@name = 'landingPage'][1]/*:uri)[1])!=''">
-                        <cmd:ResourceProxy id="lp">
-                            <cmd:ResourceType>LandingPage</cmd:ResourceType>
-                            <cmd:ResourceRef><xsl:value-of select="*:result/*:binding[@name = 'landingPage'][1]/*:uri"/></cmd:ResourceRef>
-                        </cmd:ResourceProxy>
-                    </xsl:if>
-<!--                    <xsl:if test="normalize-space(*:result/*:binding[@name = 'landingPage'][1]/*:uri)!=''">-->
+                    <xsl:for-each select="*:result/*:binding[@name = 'landingPage']/*:uri">
+                        <xsl:if test="normalize-space(.)!=''">
+                            <cmd:ResourceProxy id="lp{format-number(position(), '0000')}">
+                                <cmd:ResourceType>LandingPage</cmd:ResourceType>
+                                <cmd:ResourceRef><xsl:value-of select="."/></cmd:ResourceRef>
+                            </cmd:ResourceProxy>
+                        </xsl:if>
+                    </xsl:for-each>
+<!--                    <xsl:if test="normalize-space((*:result/*:binding[@name = 'landingPage'][1]/*:uri)[1])!=''">-->
 <!--                        <cmd:ResourceProxy id="lp">-->
 <!--                            <cmd:ResourceType>LandingPage</cmd:ResourceType>-->
 <!--                            <cmd:ResourceRef><xsl:value-of select="*:result/*:binding[@name = 'landingPage'][1]/*:uri"/></cmd:ResourceRef>-->
