@@ -147,7 +147,7 @@
     <provider url="https://data.pldn.nl/hack-a-lod-2022" name="hack-a-lod-2022"/>
 <!--    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>-->
 <!--    <provider url="https://annefrank.org" name="Anne Frank Stichting"/>-->
-    <provider url="https://annefrank.org" name="Anne Frank House"/>
+<!--    <provider url="https://annefrank.org" name="Anne Frank House"/>-->
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Anne-Frank-Stichting" name="Anne Frank Stichting"/>
     <provider url="https://viaf.org/viaf/197381225/" name="Maastricht University Library"/>
     <provider url="https://linkeddata.cultureelerfgoed.nl/colonialheritage" name="Colonial Heritage"/>
