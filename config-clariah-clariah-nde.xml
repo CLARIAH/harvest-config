@@ -145,7 +145,7 @@
     <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
     <provider url="https://www.create.humanities.uva.nl/" name="CREATE, An E-Humanities Perspective"/>
     <provider url="https://data.pldn.nl/hack-a-lod-2022" name="hack-a-lod-2022"/>
-    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>
+<!--    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>-->
     <provider url="https://annefrank.org" name="Anne Frank Stichting"/>
     <provider url="https://annefrank.org" name="Anne Frank House"/>
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Anne-Frank-Stichting" name="Anne Frank Stichting"/>
