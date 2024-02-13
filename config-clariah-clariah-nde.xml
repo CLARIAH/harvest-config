@@ -155,7 +155,7 @@
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Peace-Palace-Library" name="Peace Palace Library"/>
     <provider url="https://www.nationaalarchief.nl" name="Nationaal Archief"/>
 <!--    <provider url="https://www.openarchieven.nl/" name="Open Archieven"/>-->
-    <provider url="https://www.openarchieven.nl/" name="Open Archives"/>
+<!--    <provider url="https://www.openarchieven.nl/" name="Open Archives"/>-->
     <provider url="https://triplydb.com/mark-lindeman" name="Mark Lindeman"/>
     <provider url="https://museumthorn.com/nl/resultaten" name="Museum Thorn"/>
     <provider url="https://lod.uba.uva.nl/CREATE" name="CREATE"/>
