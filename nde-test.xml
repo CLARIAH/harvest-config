@@ -86,9 +86,8 @@
   <actions>
     <format match="type" value="*">
       <action type="save" dir="result" suffix=".xml"/>
-      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx-split.xsl"/>
+      <action type="nl.mpi.oai.harvester.action.nde-split"/>
       <action type="save" dir="request" suffix=".xml"/>
-      <action type="xml-split"/>
       <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx2cmdi.xsl"/>
       <action type="save" dir="rec" suffix=".xml"/>
     </format>
