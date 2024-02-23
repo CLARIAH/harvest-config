@@ -26,6 +26,15 @@
                         <cmd:ResourceType>Resource</cmd:ResourceType>
                         <cmd:ResourceRef><xsl:value-of select="@dataset"/></cmd:ResourceRef>
                     </cmd:ResourceProxy>
+                    <xsl:for-each-group
+                        select="*:result/*:binding[@name = 'landingPage']/*:uri" group-by=".">
+                        <xsl:if test="position()=1">
+                            <cmd:ResourceProxy id="lp{format-number(position(), '0000')}">
+                                <cmd:ResourceType>LandingPage</cmd:ResourceType>
+                                <cmd:ResourceRef><xsl:value-of select="current-grouping-key()"/></cmd:ResourceRef>
+                            </cmd:ResourceProxy>
+                        </xsl:if>
+                    </xsl:for-each-group>
                     <xsl:for-each select="*:result/*:binding[@name = 'landingPage']/*:uri">
                         <xsl:if test="normalize-space(.)!=''">
                             <cmd:ResourceProxy id="lp{format-number(position(), '0000')}">
