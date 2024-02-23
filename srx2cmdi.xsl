@@ -22,10 +22,15 @@
             </cmd:Header>
             <cmd:Resources>
                 <cmd:ResourceProxyList>
-                    <cmd:ResourceProxy id="rp1">
-                        <cmd:ResourceType>Resource</cmd:ResourceType>
-                        <cmd:ResourceRef><xsl:value-of select="@dataset"/></cmd:ResourceRef>
-                    </cmd:ResourceProxy>
+                    <xsl:for-each-group
+                        select="*:result/*:binding[@name = 'dataset']/*:uri" group-by=".">
+                        <xsl:if test="position()=1">
+                            <cmd:ResourceProxy id="ds">
+                                <cmd:ResourceType>Resource</cmd:ResourceType>
+                                <cmd:ResourceRef><xsl:value-of select="current-grouping-key()"/></cmd:ResourceRef>
+                            </cmd:ResourceProxy>
+                        </xsl:if>
+                    </xsl:for-each-group>
                     <xsl:for-each-group
                         select="*:result/*:binding[@name = 'landingPage']/*:uri" group-by=".">
                         <xsl:if test="position()=1">
@@ -35,13 +40,20 @@
                             </cmd:ResourceProxy>
                         </xsl:if>
                     </xsl:for-each-group>
+                    <xsl:for-each-group select="*:result/*:binding[@name = 'distribution']"
+                        group-by="*">
+                        <cmd:ResourceProxy id="dis-{position()}">
+                            <cmd:ResourceType>Resource</cmd:ResourceType>
+                            <cmd:ResourceRef><xsl:value-of select="current-grouping-key()"/></cmd:ResourceRef>
+                        </cmd:ResourceProxy>
+                    </xsl:for-each-group>
                 </cmd:ResourceProxyList>
                 <cmd:JournalFileProxyList/>
                 <cmd:ResourceRelationList/>
             </cmd:Resources>
             <cmd:Components>
                 <cmdp:DCat>
-                    <cmdp:Dataset cmd:ref="rp1">
+                    <cmdp:Dataset cmd:ref="ds">
                         <xsl:for-each-group
                                 select="*:result/*:binding[@name = 'title']/*" group-by=".">
                             <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
@@ -113,7 +125,7 @@
                         <xsl:for-each-group select="*:result/*:binding[@name = 'distribution']"
                                             group-by="*">
                             <xsl:variable name="res" select="current-group()[1]/parent::*:result"/>
-                            <cmdp:Distribution>
+                            <cmdp:Distribution ref="dis-{position()}">
                                 <xsl:for-each-group
                                         select="$res/*:binding[@name = 'distribution_url']/*:uri"
                                         group-by=".">
