@@ -12,8 +12,11 @@
     <!-- Delay between retries of a record (seconds). -->
     <retry-delay>10</retry-delay>
 
+    <!-- Delay between requests (seconds). -->
+    <nice-delay>10</nice-delay>
+    
     <!-- Maximum number of concurrent harvester threads -->
-    <max-jobs>1</max-jobs>
+    <max-jobs>4</max-jobs>
 
     <!-- Number of resources placed in the resource pool. -->
     <resource-pool-size>4</resource-pool-size>
@@ -86,17 +89,19 @@
   <actions>
     <format match="type" value="*">
       <action type="save" dir="result" suffix=".xml"/>
-      <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx-split.xsl"/>
+      <action type="nl.mpi.oai.harvester.action.NDESplitAction"/>
       <action type="save" dir="request" suffix=".xml"/>
-      <action type="xml-split"/>
       <action type="transform" file="https://raw.githubusercontent.com/CLARIAH/harvest-config/develop/srx2cmdi.xsl"/>
       <action type="save" dir="rec" suffix=".xml"/>
     </format>
   </actions>
-
+  
   <!-- ### list of providers ### -->
   <providers>
     <provider url="https://www.kb.nl/" name="Koninklijke Bibliotheek"/>
+    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="Koninklijke Bibliotheek"/>
+    <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
+    <!-- ^^^^ TRY TO GET THESE ALSO INTO INEO -->
     <provider url="https://vangoghworldwide.org/" name="Van Gogh worldwide consortium"/>
     <provider url="https://www.oorlogsbronnen.nl" name="Netwerk Oorlogsbronnen"/>
     <provider url="https://www.genealogieonline.nl/" name="Genealogie Online"/>
@@ -110,7 +115,6 @@
     <provider url="https://www.tropenmuseum.nl/nl/over-het-tropenmuseum/stichting-nationaal-museum-van-wereldculturen" name="Nationaal Museum van Wereldculturen"/>
     <provider url="https://data.overheid.nl/organisatie/Rijksmuseum" name="Rijksmuseum"/>
     <provider url="https://www.muziekschatten.nl/" name="Muziekschatten"/>
-    <provider url="http://data.bibliotheken.nl/id/thes/p075301482" name="Koninklijke Bibliotheek"/>
     <provider url="https://www.niod.nl/" name="NIOD Instituut voor Oorlogs-, Holocaust- en Genocidestudies"/>
     <provider url="https://druid.datalegend.net/dataLegend" name="dataLegend"/>
     <provider url="https://www.regionaalarchiefnijmegen.nl/" name="Regionaal Archief Nijmegen"/>
@@ -137,31 +141,30 @@
     <provider url="https://opendata.picturae.com/organization/sahm" name="Streekarchief Midden-Holland"/>
     <provider url="https://opendata.picturae.com/organization/rce_gla" name="Nationaal Glasmuseum"/>
     <provider url="https://opendata.picturae.com/organization/rce_kunstcollectie" name="Rijksdienst voor Cultureel Erfgoed - Kunstcollectie"/>
-<!--    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>-->
+    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis" exclusive="true"/>
     <provider url="https://dc4eu.nl/" name="DC4EU - Dutch Collections for Europe"/>
     <provider url="https://www.collectienederland.nl" name="Rijksdienst voor Cultureel Erfgoed"/>
     <provider url="https://erfgoedbrabant.ginger-acceptatie.driebit.net/" name="Brabants Erfgoed"/>
     <provider url="https://uba.uva.nl/" name="Library of the University of Amsterdam"/>
-    <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
     <provider url="https://www.create.humanities.uva.nl/" name="CREATE, An E-Humanities Perspective"/>
     <provider url="https://data.pldn.nl/hack-a-lod-2022" name="hack-a-lod-2022"/>
-<!--    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl"/>-->
-<!--    <provider url="https://annefrank.org" name="Anne Frank Stichting"/>-->
-<!--    <provider url="https://annefrank.org" name="Anne Frank House"/>-->
+    <provider url="https://www.missiemuseum.nl/nl" name="Missiemuseum Steyl" exclusive="true"/>
+    <provider url="https://annefrank.org" name="Anne Frank Stichting" exclusive="true"/>
+    <!--    <provider url="https://annefrank.org" name="Anne Frank House" exclusive="true"/>-->
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Anne-Frank-Stichting" name="Anne Frank Stichting"/>
     <provider url="https://viaf.org/viaf/197381225/" name="Maastricht University Library"/>
     <provider url="https://linkeddata.cultureelerfgoed.nl/colonialheritage" name="Colonial Heritage"/>
     <provider url="https://nieuweinstituut.nl/" name="Nieuwe Instituut"/>
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Peace-Palace-Library" name="Peace Palace Library"/>
     <provider url="https://www.nationaalarchief.nl" name="Nationaal Archief"/>
-<!--    <provider url="https://www.openarchieven.nl/" name="Open Archieven"/>-->
-<!--    <provider url="https://www.openarchieven.nl/" name="Open Archives"/>-->
+    <!--<provider url="https://www.openarchieven.nl/" name="Open Archieven" exclusive="true"/>-->
+    <!--    <provider url="https://www.openarchieven.nl/" name="Open Archives" exclusive="true"/>-->
     <provider url="https://triplydb.com/mark-lindeman" name="Mark Lindeman"/>
     <provider url="https://museumthorn.com/nl/resultaten" name="Museum Thorn"/>
     <provider url="https://lod.uba.uva.nl/CREATE" name="CREATE"/>
     <provider url="https://lod.uba.uva.nl/Cinema-Context" name="Cinema Context"/>
-<!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine"/>-->
-<!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Time Machine"/>-->
+    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Tijdmachine" exclusive="true"/>
+    <!--    <provider url="https://www.goudatijdmachine.nl/omeka/api/items/232" name="Gouda Time Machine" exclusive="true"/>-->
     <provider url="https://colonial-heritage.triply.cc/nmvw" name="Nationaal Museum van Wereldculturen"/>
     <provider url="https://data.netwerkdigitaalerfgoed.nl/Data-Doe-Dag" name="NDE Data-Doe-Dag"/>
     <provider url="https://linkeddata.cultureelerfgoed.nl/rce" name="Rijksdienst voor het Cultureel Erfgoed"/>
