@@ -95,7 +95,7 @@
 
   <!-- ### list of providers ### -->
   <providers>
-    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis"/>
+    <provider url="https://rkd.nl/" name="RKD Nederlands Instituut voor Kunstgeschiedenis" exclusive="true"/>
     <provider url="https://www.beeldengeluid.nl" name="Nederlands Instituut voor Beeld en Geluid"/>
   </providers>
 </config>
