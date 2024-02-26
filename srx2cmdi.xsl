@@ -32,7 +32,7 @@
                         </xsl:if>
                     </xsl:for-each-group>
                     <xsl:for-each-group
-                        select="*:result/*:binding[@name = 'landingPage']/*:uri" group-by=".">
+                        select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#landingPage']" group-by="*:binding[@name='o']/*:uri">
                         <xsl:if test="position()=1">
                             <cmd:ResourceProxy id="lp">
                                 <cmd:ResourceType>LandingPage</cmd:ResourceType>
@@ -55,13 +55,13 @@
                 <cmdp:DCat>
                     <cmdp:Dataset cmd:ref="ds">
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'title']/*" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/title']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:title>
                         </xsl:for-each-group>
-                        <xsl:for-each-group select="*:result/*:binding[@name = 'license']/*"
-                                            group-by=".">
+                        <xsl:for-each-group
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/license']" group-by="*:binding[@name='o']/*:uri">
                             <cmdp:license>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:license>
@@ -73,118 +73,106 @@
                             </cmdp:publisher>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'description']/*"
-                                group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/description']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:description>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'keyword']/*" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#keyword']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:keyword xml:lang="{current-group()[1]/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:keyword>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'landingPage']/*:uri" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#landingPage']" group-by="*:binding[@name='o']/*:uri">
                             <cmdp:landingPage>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:landingPage>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'source']/*" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/source']" group-by="*:binding[@name='o']/*:uri">
                             <cmdp:source>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:source>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'created']/*" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/created']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:created>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:created>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'modified']/*"
-                                group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/modified']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:modified>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:modified>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'issued']/*" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/issued']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:issued>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:issued>
                         </xsl:for-each-group>
                         <xsl:for-each-group
-                                select="*:result/*:binding[@name = 'version']/*:literal" group-by=".">
+                            select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/2002/07/owlversionInfo']" group-by="*:binding[@name='o']/*:literal">
                             <cmdp:versionInfo>
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:versionInfo>
                         </xsl:for-each-group>
-                        <xsl:for-each-group select="*:result/*:binding[@name = 'distribution']"
-                                            group-by="*">
-                            <xsl:variable name="res" select="current-group()[1]/parent::*:result"/>
+                        <xsl:for-each-group select="*:result[*:binding/@name = 'distribution']"
+                            group-by="*:binding[@name='distribution']/*:uri">
                             <cmdp:Distribution ref="dis-{position()}">
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_url']/*:uri"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#accessURL']" group-by="*:binding[@name='o']/*:uri">
                                     <cmdp:accessURL>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:accessURL>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_mediaType']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#mediaType']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:mediaType>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:mediaType>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_format']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/format']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:format>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:format>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_published']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='ttp://purl.org/dc/terms/issued']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:issued>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:issued>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_modified']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/modified']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:modified>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:modified>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_description']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/description']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:description>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_license']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/license']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:license>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:license>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_title']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/title']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:title>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                        select="$res/*:binding[@name = 'distribution_size']/*"
-                                        group-by=".">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#byteSize']" group-by="*:binding[@name='o']/*:literal">
                                     <cmdp:byteSize>
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:byteSize>
