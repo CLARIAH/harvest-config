@@ -56,7 +56,7 @@
                     <cmdp:Dataset cmd:ref="ds">
                         <xsl:for-each-group
                             select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/title']" group-by="*:binding[@name='o']/*:literal">
-                            <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
+                            <cmdp:title xml:lang="{current-group()[1]/*:binding[@name='o']/*:literal/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:title>
                         </xsl:for-each-group>
@@ -74,13 +74,13 @@
                         </xsl:for-each-group>
                         <xsl:for-each-group
                             select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://purl.org/dc/terms/description']" group-by="*:binding[@name='o']/*:literal">
-                            <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
+                            <cmdp:description xml:lang="{current-group()[1]/*:binding[@name='o']/*:literal/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:description>
                         </xsl:for-each-group>
                         <xsl:for-each-group
                             select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#keyword']" group-by="*:binding[@name='o']/*:literal">
-                            <cmdp:keyword xml:lang="{current-group()[1]/@xml:lang}">
+                            <cmdp:keyword xml:lang="{current-group()[1]/*:binding[@name='o']/*:literal/@xml:lang}">
                                 <xsl:value-of select="current-grouping-key()"/>
                             </cmdp:keyword>
                         </xsl:for-each-group>
@@ -155,7 +155,7 @@
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
                                     select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/description']" group-by="*:binding[@name='o']/*:literal">
-                                    <cmdp:description xml:lang="{current-group()[1]/@xml:lang}">
+                                    <cmdp:description xml:lang="{current-group()[1]/*:binding[@name='o']/*:literal/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:description>
                                 </xsl:for-each-group>
@@ -167,7 +167,7 @@
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
                                     select="current-group()[*:binding[@name='p']/*:uri='http://purl.org/dc/terms/title']" group-by="*:binding[@name='o']/*:literal">
-                                    <cmdp:title xml:lang="{current-group()[1]/@xml:lang}">
+                                    <cmdp:title xml:lang="{current-group()[1]/*:binding[@name='o']/*:literal/@xml:lang}">
                                         <xsl:value-of select="current-grouping-key()"/>
                                     </cmdp:title>
                                 </xsl:for-each-group>
