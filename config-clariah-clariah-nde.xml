@@ -36,22 +36,22 @@
       PREFIX dct:  &lt;http://purl.org/dc/terms/>
       PREFIX schema: &lt;http://schema.org/>
 
-      SELECT ?publisher ?dataset ?distribution ?p ?o WHERE {
-      BIND( &lt;https://rkd.nl/> as ?publisher)
+      SELECT ?publisher ?dataset ?distribution ?p ?o WHERE {{
+      BIND(&lt;{$provider-url}> as ?publisher)
 
-      {
+      {{
       ?dataset dct:publisher ?publisher;
       ?p ?o .
       FILTER(?p != schema:dateRead)
-      }
+      }}
       UNION
-      {
+      {{
       ?dataset dct:publisher ?publisher;
       dcat:distribution ?distribution.
       ?distribution ?p ?o .
-      }
+      }}
 
-      } ORDER BY ?dataset
+      }} ORDER BY ?dataset
     </nde-ListRecords-sparql>
 
     <incremental>false</incremental>
