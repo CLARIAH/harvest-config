@@ -43,7 +43,7 @@
          number of files. -->
     <dir path="oai-pmh" id="oai" max-files="0"/>
     <dir path="oai-rec" id="rec" max-files="0"/>
-    <dir path="results/cmdi" id="cmdi" max-files="0"/>
+    <dir path="cmdi" id="cmdi" max-files="0"/>
   </directories>
 
   <!-- ### actions to take on metadata formats (in order of preference) ### -->
