@@ -82,11 +82,9 @@
   <providers>
     <provider url="http://clst.science.ru.nl/oai/provider" name="CLST"/>
     <provider url="http://repository.clarin.inl.nl/oai/provider" name="INVDT"/>
-    <provider url="http://easy.dans.knaw.nl/oai/" name="DANS">
-      <set>D30000:D38000</set>
-      <set>easy-collection:1</set>
+    <provider url="https://ssh.datastations.nl/oai" name="DANS">
+      <set>humanities</set>
     </provider>
-    <!-- ^^^^ TRY TO GET THESE ALSO INTO INEO -->
     <provider url="https://www.meertens.knaw.nl/flat/oai2"/>
     <provider url="https://archive.mpi.nl/oai2" timeout="600"/>
   </providers>
