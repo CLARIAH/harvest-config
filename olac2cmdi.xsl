@@ -251,7 +251,7 @@
                 <xsl:attribute name="id">
                     <xsl:value-of select="generate-id()"/>
                 </xsl:attribute>
-                <ResourceType>Resource</ResourceType>
+                <ResourceType>LandingPage</ResourceType>
                 <ResourceRef>
                     <xsl:choose>
                         <!--<xsl:when test="contains(., 'hdl:')">
