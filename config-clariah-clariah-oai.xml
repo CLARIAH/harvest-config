@@ -66,6 +66,16 @@
       <action type="transform" file="https://infra.clarin.eu/CMDI/1.x/upgrade/cmd-record-1_1-to-1_2.xsl" cache="cache"/>
       <action type="save" dir="cmdi" suffix=".xml"/>
     </format>
+    <!-- DataCite -->    
+    <format match="prefix" value="oai_datacite">
+      <action type="save" dir="oai" suffix=".xml"/>
+      <action type="transform" file="resources/addOAISetName.xsl" cache="cache"/>
+      <action type="split"/>
+      <action type="strip"/>
+      <action type="save" dir="rec" suffix=".xml"/>
+      <action type="transform" file="https://raw.githubusercontent.com/clarin-eric/metadata-conversion/master/datacite-cmdi/datacite_to_cmdi.xsl"/>
+      <action type="save" dir="cmdi-1_2" suffix=".xml"/>
+    </format>
     <!-- Dublin Core -->
     <format match="prefix" value="oai_dc">
       <action type="save" dir="oai" suffix=".xml"/>
@@ -85,7 +95,9 @@
     <provider url="https://ssh.datastations.nl/oai" name="DANS">
       <set>humanities</set>
     </provider>
-    <provider url="https://www.meertens.knaw.nl/flat/oai2"/>
+    <provider url="https://flat.meertens.knaw.nl/flat/oai2"/>
     <provider url="https://archive.mpi.nl/oai2" timeout="600"/>
+    <!-- for once -->
+    <provider url="https://portal.odissei.nl/oai" name="ODISSEI"/>
   </providers>
 </config>
