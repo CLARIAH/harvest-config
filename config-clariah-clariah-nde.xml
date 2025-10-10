@@ -31,7 +31,7 @@
     <protocol>nl.mpi.oai.harvester.protocol.NdeProtocol</protocol>
     <scenario>ListRecords</scenario>
 
-    <nde-ListRecords-sparql text-expand="yes" endpoint="https://triplestore.netwerkdigitaalerfgoed.nl/repositories/registry">
+    <nde-ListRecords-sparql text-expand="yes" endpoint="https://datasetregister.netwerkdigitaalerfgoed.nl/sparql">
       PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
       PREFIX dct:  &lt;http://purl.org/dc/terms/>
       PREFIX schema: &lt;http://schema.org/>
