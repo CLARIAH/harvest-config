@@ -97,6 +97,6 @@
     <provider url="https://flat.meertens.knaw.nl/flat/oai2" name="Meertens Institute - Research Collections"/>
     <provider url="https://archive.mpi.nl/oai2" timeout="600"/>
     <!-- for once -->
-    <provider url="https://portal.odissei.nl/oai" name="ODISSEI"/>
+<!--    <provider url="https://portal.odissei.nl/oai" name="ODISSEI"/>-->
   </providers>
 </config>
