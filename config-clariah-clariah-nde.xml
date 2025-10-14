@@ -28,7 +28,7 @@
     <!-- File used to store endpoint -> directory mappings -->
     <map-file>map.csv</map-file>
 
-    <protocol>nl.mpi.oai.harvester.protocol.NdeProtocol</protocol>
+    <protocol>nl.clariah.oai.harvester.protocol.NdeProtocol</protocol>
     <scenario>ListRecords</scenario>
 
     <nde-ListRecords-sparql text-expand="yes" endpoint="https://datasetregister.netwerkdigitaalerfgoed.nl/sparql">
