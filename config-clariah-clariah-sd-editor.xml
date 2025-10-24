@@ -1,0 +1,61 @@
+<!-- This is the configuration for CLARIAH NDE harvesting. -->
+<config>
+
+    <!-- ### configuration settings ### -->
+    <settings>
+        <!-- Working directory. -->
+        <workdir>workspace</workdir>
+
+        <!-- Maximum number of attempts per record before giving up. -->
+        <max-retry-count>2</max-retry-count>
+
+        <!-- Delay between retries of a record (seconds). -->
+        <retry-delay>10</retry-delay>
+
+        <!-- Delay between requests (seconds). -->
+        <nice-delay>10</nice-delay>
+
+        <!-- Maximum number of concurrent harvester threads -->
+        <max-jobs>4</max-jobs>
+
+        <!-- Number of resources placed in the resource pool. -->
+        <resource-pool-size>4</resource-pool-size>
+
+        <!-- Default timeout (for connection and reading) for a single
+        http request in seconds. If unspecified, will be INFINITE.  -->
+        <timeout>60</timeout>
+
+        <!-- File used to store endpoint -> directory mappings -->
+        <map-file>map.csv</map-file>
+
+        <protocol>nl.clariah.oai.harvester.protocol.SDEditorProtocol</protocol>
+        <scenario>ListRecords</scenario>
+
+        <incremental>false</incremental>
+        <dry-run>false</dry-run>
+    </settings>
+
+    <!-- ### output directories (referenced in the action section) ### -->
+    <directories>
+        <!-- When the attribute 'max-files' is non-zero, subdirectories
+             will be created to ensure no directory has more than that
+             number of files. -->
+        <dir path="cmdi" id="rec" max-files="0"/>
+    </directories>
+
+    <!-- ### actions to take on metadata formats (in order of preference) ### -->
+    <actions>
+        <format match="type" value="*">
+            <action type="transform" file="https://raw.githubusercontent.com/clarin-eric/oai-harvest-manager/master/src/main/resources/filter.xsl"/>
+            <action type="save" dir="result" suffix=".xml"/>
+        </format>
+    </actions>
+
+    <!-- ### list of providers ### -->
+    <providers>
+        <provider url="https://editor.sd.di.huc.knaw.nl/app/nde/profile/clarin.eu:cr1:p_1708423613599" name="KHuygens Institute">
+            <filter>.//*:status='publish'</filter>
+        </provider>
+
+    </providers>
+</config>
