@@ -53,7 +53,7 @@
 
     <!-- ### list of providers ### -->
     <providers>
-        <provider url="https://editor.sd.di.huc.knaw.nl/app/nde/profile/clarin.eu:cr1:p_1708423613599" name="KHuygens Institute">
+        <provider url="https://editor.sd.di.huc.knaw.nl/app/nde/profile/clarin.eu:cr1:p_1708423613599/record" name="KHuygens Institute">
             <filter>.//*:status='publish'</filter>
         </provider>
 
