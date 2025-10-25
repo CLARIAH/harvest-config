@@ -46,7 +46,7 @@
     <!-- ### actions to take on metadata formats (in order of preference) ### -->
     <actions>
         <format match="type" value="*">
-            <action type="transform" file="https://raw.githubusercontent.com/clarin-eric/oai-harvest-manager/master/src/main/resources/filter.xsl"/>
+<!--            <action type="transform" file="https://raw.githubusercontent.com/clarin-eric/oai-harvest-manager/master/src/main/resources/filter.xsl"/>-->
             <action type="save" dir="cmdi" suffix=".xml"/>
         </format>
     </actions>
