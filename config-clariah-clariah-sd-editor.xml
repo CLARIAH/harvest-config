@@ -28,7 +28,7 @@
         <!-- File used to store endpoint -> directory mappings -->
         <map-file>map.csv</map-file>
 
-        <protocol>nl.clariah.oai.harvester.protocol.SDEditorProtocol</protocol>
+        <protocol>nl.clariah.oai.harvester.protocol.SdEditorProtocol</protocol>
         <scenario>ListRecords</scenario>
 
         <incremental>false</incremental>
