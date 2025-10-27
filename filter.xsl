@@ -22,7 +22,8 @@
                             <xsl:next-match/>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:message>INF: skipped record</xsl:message> 
+                            <xsl:message>INF: skipped record</xsl:message>
+                            <null/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
