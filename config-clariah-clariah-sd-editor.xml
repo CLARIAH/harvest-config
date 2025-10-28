@@ -13,7 +13,7 @@
         <retry-delay>10</retry-delay>
 
         <!-- Delay between requests (seconds). -->
-        <nice-delay>10</nice-delay>
+        <nice-delay>1</nice-delay>
 
         <!-- Maximum number of concurrent harvester threads -->
         <max-jobs>4</max-jobs>
