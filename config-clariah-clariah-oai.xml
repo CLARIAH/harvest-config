@@ -10,7 +10,7 @@
     <max-retry-count>2</max-retry-count>
 
     <!-- Delay between retries of a record (seconds). -->
-    <retry-delay>10</retry-delay>
+    <retry-delay>30</retry-delay>
 
     <!-- Delay between requests (seconds). -->
 <!--    <nice-delay>10</nice-delay>-->
@@ -94,9 +94,9 @@
   <providers>
     <provider url="http://clst.science.ru.nl/oai/provider" name="CLST"/>
     <provider url="http://repository.clarin.inl.nl/oai/provider" name="INVDT"/>
-<!--    <provider url="https://ssh.datastations.nl/oai" name="DANS">-->
-<!--      <set>humanities</set>-->
-<!--    </provider>-->
+    <provider url="https://ssh.datastations.nl/oai" name="DANS">
+      <set>humanities</set>
+    </provider>
     <provider url="https://flat.meertens.knaw.nl/flat/oai2" name="Meertens Institute - Research Collections"/>
     <provider url="https://archive.mpi.nl/oai2" timeout="600"/>
     <!-- for once -->
