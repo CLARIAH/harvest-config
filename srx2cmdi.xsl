@@ -8,7 +8,7 @@
 
     <xsl:template match="text()"/>
     
-    <xsl:param name="nde_datasetregistry_browser" select="https://datasetregister.netwerkdigitaalerfgoed.nl/en/datasets'"/>
+    <xsl:param name="nde_datasetregistry_browser" select="'https://datasetregister.netwerkdigitaalerfgoed.nl/en/datasets'"/>
 
     <xsl:template match="sr:results">
         <xsl:variable name="URI" select="(*:result/*:binding[@name = 'dataset']/*:uri)[1]"/>
