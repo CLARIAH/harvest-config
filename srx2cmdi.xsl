@@ -7,8 +7,11 @@
                 version="2.0">
 
     <xsl:template match="text()"/>
+    
+    <xsl:param name="nde_datasetregistry_browser" select="https://datasetregister.netwerkdigitaalerfgoed.nl/en/datasets'"/>
 
     <xsl:template match="sr:results">
+        <xsl:variable name="URI" select="(*:result/*:binding[@name = 'dataset']/*:uri)[1]"/>
         <cmd:CMD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:cmd="http://www.clarin.eu/cmd/1"
                  xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1650879720846"
@@ -18,28 +21,18 @@
                 <cmd:MdCreator>sparqlresult2cmdi.xsl</cmd:MdCreator>
                 <cmd:MdCreationDate><xsl:value-of select="current-date()"/></cmd:MdCreationDate>
                 <cmd:MdProfile>clarin.eu:cr1:p_1650879720846</cmd:MdProfile>
-                <cmd:MdSelfLink><xsl:value-of select="(*:result/*:binding[@name = 'dataset']/*:uri)[1]"/></cmd:MdSelfLink>
+                <cmd:MdSelfLink><xsl:value-of select="$URI"/></cmd:MdSelfLink>
             </cmd:Header>
             <cmd:Resources>
                 <cmd:ResourceProxyList>
-                    <xsl:for-each-group
-                        select="*:result/*:binding[@name = 'dataset']/*:uri" group-by=".">
-                        <xsl:if test="position()=1">
-                            <cmd:ResourceProxy id="ds">
-                                <cmd:ResourceType>Resource</cmd:ResourceType>
-                                <cmd:ResourceRef><xsl:value-of select="current-grouping-key()"/></cmd:ResourceRef>
-                            </cmd:ResourceProxy>
-                        </xsl:if>
-                    </xsl:for-each-group>
-                    <xsl:for-each-group
-                        select="*:result[empty(*:binding[@name='distribution'])][*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#landingPage']" group-by="*:binding[@name='o']/*:uri">
-                        <xsl:if test="position()=1">
-                            <cmd:ResourceProxy id="lp">
-                                <cmd:ResourceType>LandingPage</cmd:ResourceType>
-                                <cmd:ResourceRef><xsl:value-of select="current-grouping-key()"/></cmd:ResourceRef>
-                            </cmd:ResourceProxy>
-                        </xsl:if>
-                    </xsl:for-each-group>
+                    <cmd:ResourceProxy id="ds">
+                        <cmd:ResourceType>Resource</cmd:ResourceType>
+                        <cmd:ResourceRef><xsl:value-of select="$URI"/></cmd:ResourceRef>
+                    </cmd:ResourceProxy>
+                    <cmd:ResourceProxy id="ds">
+                        <cmd:ResourceType>LandingPage</cmd:ResourceType>
+                        <cmd:ResourceRef><xsl:value-of select="$nde_datasetregistry_browser"/>/<xsl:value-of select="$URI"/></cmd:ResourceRef>
+                    </cmd:ResourceProxy>
                     <xsl:for-each-group select="*:result/*:binding[@name = 'distribution']"
                         group-by="*">
                         <cmd:ResourceProxy id="dis-{position()}">
