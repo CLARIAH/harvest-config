@@ -29,7 +29,7 @@
                         <cmd:ResourceType>Resource</cmd:ResourceType>
                         <cmd:ResourceRef><xsl:value-of select="$URI"/></cmd:ResourceRef>
                     </cmd:ResourceProxy>
-                    <cmd:ResourceProxy id="ds">
+                    <cmd:ResourceProxy id="lp">
                         <cmd:ResourceType>LandingPage</cmd:ResourceType>
                         <cmd:ResourceRef><xsl:value-of select="$nde_datasetregistry_browser"/>/<xsl:value-of select="$URI"/></cmd:ResourceRef>
                     </cmd:ResourceProxy>
@@ -114,8 +114,8 @@
                             </cmdp:versionInfo>
                         </xsl:for-each-group>
                         <xsl:for-each-group select="*:result[*:binding/@name = 'distribution']"
-                            group-by="*:binding[@name='distribution']/*:uri">
-                            <cmdp:Distribution ref="dis-{position()}">
+                            group-by="*:binding[@name='distribution']/(*:uri|*:bnode)">
+                            <cmdp:Distribution cmd:ref="dis-{position()}">
                                 <xsl:for-each-group
                                     select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#accessURL']" group-by="*:binding[@name='o']/*:uri">
                                     <cmdp:accessURL>
@@ -123,9 +123,9 @@
                                     </cmdp:accessURL>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
-                                    select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#mediaType']" group-by="*:binding[@name='o']/*:literal">
+                                    select="current-group()[*:binding[@name='p']/*:uri='http://www.w3.org/ns/dcat#mediaType']" group-by="*:binding[@name='o']/(*:literal|*:uri)">
                                     <cmdp:mediaType>
-                                        <xsl:value-of select="current-grouping-key()"/>
+                                        <xsl:value-of select="replace(current-grouping-key(),'https://www.iana.org/assignments/media-types/','')"/>
                                     </cmdp:mediaType>
                                 </xsl:for-each-group>
                                 <xsl:for-each-group
